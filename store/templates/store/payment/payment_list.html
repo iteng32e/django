@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Payment List {% endblock %}
+{% block content %}
+<h1>Payment List</h1>
+<hr><br>
+{% for payment in object_list %}
+<ul>
+    <li><a href="{% url 'store:payment_detail_url' payment.id %}">{{payment.id}} ---> {{payment.date}}</a></li>
+</ul>
+{% endfor %}
+{% endblock %}

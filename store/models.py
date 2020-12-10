@@ -47,6 +47,7 @@ class Payment(models.Model):
     amount = models.CharField(max_length=8, null=True, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateTimeField(null=True, blank=True)
+    method = models.ForeignKey(PaymentMethod, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         str1 = self.payer.first_name + " ,"

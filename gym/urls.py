@@ -24,6 +24,7 @@ from club import views
 urlpatterns = [
     url('admin/', admin.site.urls),
     path('club/', include('club.urls')),
+    path('store/', include('store.urls')),
     path('contact/', views.tell_me_view, name="contact"),
 
 ]

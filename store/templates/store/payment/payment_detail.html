@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Payment Detail{% endblock %}
+{% block content %}
+{% for payment in object_list %}
+<h3>Detail Of payment {{payment.id}}</h3>
+<br>
+<ul>
+    <li>{{payment.payer.first_name}} {{payment.payer.last_name}} </li>
+    <li>{{payment.date}}</li>
+    <li>{{payment.amount}}</li>
+    <li>{{payment.method}}</li>
+</ul>
+<hr>
+{% endfor %}
+{% endblock %}
