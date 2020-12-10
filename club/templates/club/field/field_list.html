@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'club/css/style.css'%}">
+{% endblock %}
+
+{% block title%} Field List {% endblock %}
+
+{% block content %}
+<h1>Field List</h1>
+<ul>
+    {% for field in object_list %}
+    <li>
+        <a href=" {% url 'club:field_detail_url' field.pk %} ">
+            {{ field.name }}
+        </a>
+    </li>
+    {% empty %}
+    <li>No Field yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

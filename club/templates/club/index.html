@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+مشاهده لیست موجودی ها
+{%  endblock %}
+{% block content %}
+    <h1>Club</h1>
+    <p>welcome to <em>Club</em> a very basic Django website</p>
+    <h2>Club Information</h2>
+
+        <h3>| About Members </h3><p>There are {{ num_member }} Members joining in club.</p>
+
+    <hr>
+
+        <h3>| About Fields </h3><p>There are {{ num_field }} Fields Available in club.</p>
+
+    <hr>
+
+        <h3>| About Courses In Progressing  </h3><p>There are {{ num_course_in_progress }} Fields Progressing in club.</p>
+
+    <hr>
+
+        <h3>| About Championship  </h3><p>There are {{ num_championship }} Championships Gained in club.</p>
+
+{% endblock %}

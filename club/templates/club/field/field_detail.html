@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+{% endblock %}
+
+{% block title%} Field Detail {% endblock %}
+
+{% block content %}
+<h1>This is Field View Page</h1>
+{% for field in object_list %}
+<h3>{{ field.name }}</h3>
+    <ul>
+        <li><h3>Field Name: {{field.name}}</h3></li>
+        <li>Field Description: {{field.description}} {{field.name}}</li>
+    </ul>
+<hr>
+{% endfor %}
+{% endblock %}

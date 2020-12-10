@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+{% endblock %}
+
+{% block title%} About Detail {% endblock %}
+
+{% block content %}
+<h1>This is Detail View Page</h1>
+{% for title in object_list %}
+    <ul>
+        <li><a href="#">{{ title.name }}</a></li>
+    </ul>
+    <hr>
+    <h3>Description Of About '{{title.name}}':</h3>
+    <p>{{title.description}}</p>
+{% endfor %}
+{% endblock %}

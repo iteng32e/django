@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block link %}
+{% load static %}
+<!-- Link Of CSS Files-->
+{% endblock %}
+
+{% block title%} Login {% endblock %}
+
+
+{% block content %}
+{% if form.errors %}
+<p>Your username or password didn't match. Please try again.</p>
+{% endif %} 
+{% if next %}
+    {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed please login with another account that has access.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
+    {% endif %} 
+{% endif %}
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </div>
+
+    <div>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </div>
+
+    <div>
+        <input type="submit" value="login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </div>
+</form>
+
+<p class="btn btn-warning btn-group"><a href="{% url 'login' %}">Lost password</a></p>
+<p class="btn btn-danger btn-group"><a href="{% url 'logout' %}">Logout</a></p>
+{% endblock %}

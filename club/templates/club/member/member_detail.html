@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+{% endblock %}
+
+{% block title%} Member Detail {% endblock %}
+
+{% block content %}
+<h1>This is Member View Page</h1>
+{% for member in object_list %}
+<h3>{{ member.name }}{{member.last_name}}</h3>
+    <ul>
+        <li><h3>Member Name: {{member.first_name}}</h3></li>
+        <li><h3>Member Last Name: {{member.last_name}}</h3></li>
+    </ul>
+<hr>
+{% endfor %}
+{% endblock %}

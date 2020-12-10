@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'club/css/style.css'%}">
+{% endblock %}
+
+{% block title%} Member List {% endblock %}
+
+{% block content %}
+<h1>Member List</h1>
+<ul>
+    {% for member in object_list %}
+    <li>
+        <a href=" {% url 'club:member_detail_url' member.pk %} ">
+            {{ member.first_name }}
+        </a>
+    </li>
+    {% empty %}
+    <li>No Member yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

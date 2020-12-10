@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+{% endblock %}
+
+{% block title%} About List {% endblock %}
+
+{% block content %}
+<h1>About List</h1>
+<ul>
+    {% for about in object_list %}
+    <li>
+        <a href=" {% url 'club:about_detail_url' about.pk %} ">
+            {{ about.name }}
+        </a>
+        <br>
+    </li>
+    {% empty %}
+    <li>No articles yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

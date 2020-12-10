@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block title %} تماس با ما {% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token  %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">save</button>
+</form>
+
+{% endblock %}
