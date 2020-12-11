@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import generic
 
-from . import models
+from . import models, forms
 
 
 class ProductLisView(generic.ListView):
@@ -24,3 +25,18 @@ def payment_detail_def(request, id):
     model = models.Payment.objects.filter(pk=id)
     context = {'object_list': model}
     return render(request, 'store/payment/payment_detail.html', context)
+
+
+def shopping_form_view(request):
+    form = forms.ShopForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            shop = form.save(commit=False)
+            shop.amount = form.cleaned_data.get('amount')
+            shop.number = form.cleaned_data.get('number')
+            shop.method = form.cleaned_data.get('method')
+            shop.save()
+            return redirect(reverse('store:product_list_url'))
+    else:
+        form = forms.ShopForm()
+        return render(request, 'store/shop/shop.html', {'form': form})

@@ -3,16 +3,21 @@
 {% block title %} Product List {% endblock %}
 {% block content %}
 <h1>Product List</h1>
-<hr><br>
-{% for product in object_list %}
+<hr>
 <ul>
+    {% for product in object_list %}
     <li><a href="{% url 'store:product_detail_url' product.pk %}">{{product.name}}</a>
         <ul>
             <li>{{product.price}}</li>
         </ul>
     </li>
-</ul>
-<hr>
-{% endfor %}
+    <li>
+        <a href=" {% url 'store:shopping_form_url' %} ">
+            Go To {{product.name}} Shop
+        </a>
+    </li>
+    <hr>
+    {% endfor %}
 
+</ul>
 {% endblock %}

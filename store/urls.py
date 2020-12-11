@@ -10,4 +10,6 @@ urlpatterns = [
     path('payment_list/', views.PaymentListView.as_view(), name="payment_list_url"),
     path('payment_detail/<int:id>', views.payment_detail_def, name="payment_detail_url"),
 
+    path('shop/', views.shopping_form_view, name="shopping_form_url"),
+
 ]
